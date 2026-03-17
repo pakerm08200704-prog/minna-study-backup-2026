@@ -12,8 +12,13 @@ dependencies:
   cupertino_icons: ^1.0.2
   shared_preferences: ^2.2.2
   flutter_tts: ^3.8.5
-  # 新增此套件，用於選取電腦中的備份檔
+  # 用於選取電腦中的備份檔
   file_picker: ^8.0.0 
+  
+  # ✅ 新增：Google Firebase 核心套件
+  firebase_core: ^2.24.2
+  # ✅ 新增：Google Analytics 追蹤套件
+  firebase_analytics: ^10.7.4
 
 dev_dependencies:
   flutter_test:
@@ -22,5 +27,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  
+  # ✅ 修改：確保程式能抓到 assets/data 裡面的 lesson1.json 等檔案
   assets:
     - assets/data/
