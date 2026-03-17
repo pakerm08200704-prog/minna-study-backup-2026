@@ -1,11 +1,27 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import 'pages/home_page.dart'; 
+import 'package:firebase_core/firebase_core.dart'; // ✅ 新增：Firebase 核心
+import 'package:firebase_analytics/firebase_analytics.dart'; // ✅ 新增：Google 追蹤
+import 'pages/home_page.dart';
 
-void main() {
+void main() async {
   // 確保 Flutter 引擎初始化
   WidgetsFlutterBinding.ensureInitialized();
+
+  try {
+    // ✅ 啟動 Firebase (這會讀取您 android/app 下的 google-services.json)
+    await Firebase.initializeApp();
+    
+    // ✅ 啟動追蹤實例
+    FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+    await analytics.logAppOpen(); // 紀錄 App 開啟
+    
+    debugPrint("Firebase 初始化成功！");
+  } catch (e) {
+    debugPrint("Firebase 初始化失敗: $e");
+  }
+
   runApp(const SoraTalkApp());
 }
 
@@ -16,7 +32,7 @@ class SoraTalkApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: '我們的日本語', 
+      title: '我們的日本語',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
@@ -25,7 +41,7 @@ class SoraTalkApp extends StatelessWidget {
           elevation: 0,
         ),
       ),
-      home: const HomePage(), 
+      home: const HomePage(),
     );
   }
 }
@@ -52,7 +68,7 @@ class GrammarPage extends StatelessWidget {
               itemBuilder: (context, index) {
                 final item = grammars[index];
                 
-                // ✅ 修改處：相容新舊欄位名稱 (description 是編輯器用的，explanation 是你原本預留的)
+                // ✅ 相容新舊欄位名稱
                 String desc = item['description'] ?? item['explanation'] ?? '無解釋說明';
                 
                 // 取得例句清單
