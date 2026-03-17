@@ -1,0 +1,46 @@
+{
+  "lesson_id": 1,
+  "title": "第 1 課：自我介紹",
+  "description": "學習基本的人稱代名詞、判斷句「～は～です」。",
+  "vocabularies": [
+    {
+      "word": "私",
+      "reading": "わたし",
+      "meaning": "我",
+      "example": "私は　田中です。"
+    },
+    {
+      "word": "学生",
+      "reading": "がくせい",
+      "meaning": "學生",
+      "example": "サントスさんは　学生じゃありません。"
+    },
+    {
+      "word": "エンジニア",
+      "reading": "えんじにあ",
+      "meaning": "工程師",
+      "example": "ミラーさんは　エンジニアです。"
+    }
+  ],
+  "grammars": [
+    {
+      "title": "名詞1 + は + 名詞2 + です",
+      "formula": "N1 は N2 です",
+      "explanation": "「は」是提示主題的助詞，「です」表示斷定，相當於中文的「是」。",
+      "example": "私は　トモです。"
+    },
+    {
+      "title": "名詞1 + は + 名詞2 + じゃありません",
+      "formula": "N1 は N2 じゃありません",
+      "explanation": "這是「です」的否定形式，意思為「不是」。",
+      "example": "ワンさんは　先生じゃありません。"
+    }
+  ],
+  "quizzes": [
+    {
+      "question": "「學生」的日文讀音是？",
+      "options": ["がくせい", "せんせい", "かいしゃいん"],
+      "answer": "がくせい"
+    }
+  ]
+}
